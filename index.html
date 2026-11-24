@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clinical3D-Bench</title>
+  <meta name="description" content="Clinical3D-Bench: Evaluating and Improving Spatial Intelligence of Multimodal LLMs in Hospital Environments. 3,368 questions of eight types on egocentric walkthroughs of 373 hospital-room layouts.">
+  <meta property="og:title" content="Clinical3D-Bench">
+  <meta property="og:description" content="Evaluating and Improving Spatial Intelligence of Multimodal LLMs in Hospital Environments">
+  <meta property="og:image" content="static/images/teaser.webp">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Noto+Sans:wght@400;500;700&family=Castoro&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+</head>
+<body>
+
+<!-- ============ Hero ============ -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop has-text-centered">
+      <h1 class="title is-1 publication-title">Clinical3D-Bench</h1>
+      <h2 class="subtitle is-3 publication-subtitle">Evaluating and Improving Spatial Intelligence of Multimodal LLMs in Hospital Environments</h2>
+
+      <div class="publication-authors">
+        <span class="author-block">Yang Bai<sup>1*</sup>,</span>
+        <span class="author-block">Yingzhi Xia<sup>1*</sup>,</span>
+        <span class="author-block">Ling Lin<sup>2</sup>,</span>
+        <span class="author-block">Jun Cheng<sup>1</sup>,</span>
+        <span class="author-block">Lin Fu<sup>3</sup>,</span>
+        <span class="author-block">Huazhu Fu<sup>1&dagger;</sup></span>
+      </div>
+      <div class="publication-affils">
+        <span class="author-block"><sup>1</sup>IAIC, A*STAR</span>
+        <span class="author-block"><sup>2</sup>University of Science and Technology of China</span>
+        <span class="author-block"><sup>3</sup>Wenzhou Medical University</span>
+      </div>
+      <div class="publication-notes">
+        <span><sup>*</sup>Equal contribution</span>
+        <span><sup>&dagger;</sup>Corresponding author</span>
+      </div>
+
+      <div class="publication-links">
+        <span class="link-block">
+          <a href="#" class="button is-rounded is-dark is-disabled-soft" aria-disabled="true" title="Paper link coming soon" onclick="return false;">
+            <span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper</span><span class="soon-tag">coming soon</span>
+          </a>
+        </span>
+        <span class="link-block">
+          <a href="https://huggingface.co/datasets/yangbai123/Clinical3D-Bench" target="_blank" rel="noopener" class="button is-rounded is-dark">
+            <span class="icon"><i class="fas fa-database"></i></span><span>Dataset</span>
+          </a>
+        </span>
+        <span class="link-block">
+          <a href="https://huggingface.co/datasets/yangbai123/Clinical3D-Bench/tree/main/code" target="_blank" rel="noopener" class="button is-rounded is-dark">
+            <span class="icon"><i class="fas fa-code"></i></span><span>Code</span>
+          </a>
+        </span>
+        <span class="link-block">
+          <a href="#leaderboard" class="button is-rounded is-dark">
+            <span class="icon"><i class="fas fa-trophy"></i></span><span>Leaderboard</span>
+          </a>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Teaser ============ -->
+<section class="section pt-0">
+  <div class="container is-max-desktop">
+    <figure class="paper-figure">
+      <img src="static/images/teaser.webp" alt="Clinical3D-Bench overview: room types, a hospital walkthrough, and scene-derived answers" width="2000" height="896">
+      <figcaption><strong>Clinical3D-Bench.</strong> An MLLM answers questions from a hospital walkthrough (middle), with exact answers computed from the 3D scene (right; numbers mark evidence). Three of eight question types illustrate clinical ownership, patient-centered reference frames, and equipment clearance. Left: selected examples from the 16 room types.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ Abstract ============ -->
+<section class="section section-alt">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Abstract</h2>
+    <div class="content has-text-justified abstract">
+      <p>
+        Spatial reasoning in hospitals requires tracking look-alike equipment, interpreting patient-relative directions, and
+        judging passage widths, yet existing benchmarks provide limited coverage of these abilities.
+        We introduce <strong>Clinical3D-Bench</strong>, a simulated benchmark with 3,368 questions of eight types on egocentric
+        walkthroughs of 373 hospital-room layouts.
+        Layouts follow hospital design guidelines, answers are computed from the 3D scenes, and paired scene states test
+        whether models change their answers when relevant evidence changes.
+        Videos are photorealistic, and ten physicians screened the layouts.
+        Among 35 multimodal large language models (MLLMs), the best open and proprietary models reach 45.7% and 53.6% macro
+        accuracy, against 40.8% for an answer prior and 79.0% for physicians on a subset, and 27 of 32 open models score below
+        40% on two-way patient-relative directions.
+        Fine-tuning on <strong>Clinical3D-Train</strong>, our 44,750-question training set, lifts two MLLMs 16&ndash;20 points
+        above the best proprietary model.
+        3D maps given to the fine-tuned MLLM as input go largely unused: replacing them with another video's, even when they
+        are ground truth, barely changes its accuracy.
+        The proposed <strong>GeoJeV</strong> instead lets the MLLM compute with 3D: it reconstructs a scene memory from each
+        video, selects 3D operations and their arguments from the MLLM's question state, and adds their evidence to its option
+        scores.
+        It achieves the highest accuracy of all evaluated models, narrowing the gap to physicians.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Benchmark at a glance ============ -->
+<section class="section" id="benchmark">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Benchmark at a Glance</h2>
+
+    <div class="stat-grid">
+      <div class="stat-card"><div class="stat-num">3,368</div><div class="stat-label">questions</div></div>
+      <div class="stat-card"><div class="stat-num">8</div><div class="stat-label">question types</div></div>
+      <div class="stat-card"><div class="stat-num">569</div><div class="stat-label">ten-second clips</div></div>
+      <div class="stat-card"><div class="stat-num">373</div><div class="stat-label">layouts</div></div>
+      <div class="stat-card"><div class="stat-num">16</div><div class="stat-label">room families</div></div>
+      <div class="stat-card"><div class="stat-num">10</div><div class="stat-label">physicians screened</div></div>
+    </div>
+
+    <p class="content intro-text">
+      Scenes are generated in simulation from hospital design standards and every answer is computed from the scene record;
+      the clips are transferred to photorealistic appearance, verified against the scene and screened by physicians.
+      A disjoint training set, Clinical3D-Train, has 44,750 questions.
+    </p>
+
+    <h3 class="title is-4">Eight question types in four task groups</h3>
+    <div class="type-groups">
+      <div class="type-group">
+        <div class="group-name">Spatial memory</div>
+        <dl>
+          <dt><span class="type-tag t-count">Count</span></dt>
+          <dd>How many instances of a category seen so far are out of view at time <i>t</i>.</dd>
+          <dt><span class="type-tag t-reid">Re-ID</span></dt>
+          <dd>Which instance at <i>t&prime;</i> is the leftmost one of its category at <i>t</i>.</dd>
+        </dl>
+      </div>
+      <div class="type-group">
+        <div class="group-name">Ownership and relations</div>
+        <dl>
+          <dt><span class="type-tag t-light">Light owner</span></dt>
+          <dd>Which bed the lit bed-head light belongs to.</dd>
+          <dt><span class="type-tag t-device">Device ref.</span></dt>
+          <dd>What the device nearest a named landmark is mounted on, which bed label it carries, or beside which bed, and on which side of its patient, a labelled device is.</dd>
+        </dl>
+      </div>
+      <div class="type-group">
+        <div class="group-name">Frames of reference</div>
+        <dl>
+          <dt><span class="type-tag t-patient">Patient frame</span></dt>
+          <dd>Whether an object near the bed (within 1.5&nbsp;m) or elsewhere in the room is on the supine patient's left or right.</dd>
+        </dl>
+      </div>
+      <div class="type-group">
+        <div class="group-name">Metric navigation</div>
+        <dl>
+          <dt><span class="type-tag t-direction">Direction</span></dt>
+          <dd>The first change of direction on the shortest walkable route to the goal, the goal's quadrant from the start pose, or which corridor door is the goal.</dd>
+          <dt><span class="type-tag t-route">Route</span></dt>
+          <dd>The missing turns in the turn sequence of the shortest route, or which of several goals is nearest along the walking route.</dd>
+          <dt><span class="type-tag t-pass">Passability</span></dt>
+          <dd>Whether a passage at least 0.9&nbsp;m (crash cart) or 1.2&nbsp;m (transport bed) wide leads to the goal, or whether a transport bed can be pushed along a straight route marked on the floor.</dd>
+        </dl>
+      </div>
+    </div>
+
+    <figure class="paper-figure">
+      <img src="static/images/examples.webp" alt="One example per question type" loading="lazy" width="2100" height="1187">
+      <figcaption><strong>The eight question types of Clinical3D-Bench</strong>, organized into four task groups, with one example each (wording abridged). <i>n</i> is the number of questions; the top right of a card gives the answer options. Red boxes mark the ground-truth evidence and green the answer. Navigation cards add a top view with the camera's start pose (arrow), the goal (red) and the shortest walk.</figcaption>
+    </figure>
+
+    <figure class="paper-figure">
+      <img src="static/images/construction.webp" alt="Construction pipeline of Clinical3D-Bench" loading="lazy" width="2063" height="502">
+      <figcaption><strong>Construction of Clinical3D-Bench.</strong> Top: construction with a paired-state example (abridged). Blue marks clearance-check regions; bedside/foot zones allow movable equipment. Bottom: checks and retained counts. Regenerating passage-width questions leaves nine screened layouts without questions, giving the final 373 layouts and 569 clips.</figcaption>
+    </figure>
+
+    <figure class="paper-figure figure-narrow">
+      <img src="static/images/stats.webp" alt="Question shares and physician rating distributions" loading="lazy" width="990" height="905">
+      <figcaption><strong>Statistics of Clinical3D-Bench.</strong> (a) Question shares by task group (inner ring) and type (outer ring). (b) Score distributions and means from 874 physician ratings of 437 layouts before screening; any score &le;2 excludes the layout.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ Sample browser ============ -->
+<section class="section section-alt" id="samples">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Explore Samples</h2>
+    <p class="has-text-centered section-lead">Twelve benchmark clips from twelve room families. Switch between the photorealistic video, the source render and the instance masks, then try the questions.</p>
+
+    <div class="clip-strip" id="clip-strip" role="listbox" aria-label="Choose a clip"></div>
+
+    <div class="player-card">
+      <div class="player-head">
+        <div class="clip-meta" id="clip-meta"></div>
+        <div class="buttons has-addons view-toggle" role="group" aria-label="Video view">
+          <button class="button is-small is-rounded is-selected" data-view="photo">Photoreal</button>
+          <button class="button is-small" data-view="render">Render</button>
+          <button class="button is-small is-rounded" data-view="masks">Masks</button>
+        </div>
+      </div>
+      <div class="video-wrap">
+        <video id="sample-video" muted loop playsinline autoplay controls preload="auto" width="768" height="448"></video>
+      </div>
+      <p class="view-note" id="view-note"></p>
+    </div>
+
+    <div class="questions" id="questions"></div>
+  </div>
+</section>
+
+<!-- ============ Leaderboard ============ -->
+<section class="section" id="leaderboard">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Leaderboard</h2>
+    <p class="has-text-centered section-lead">Accuracy (%) on Clinical3D-Bench. Click a column header to sort (within each group); click again to reverse.</p>
+
+    <div class="lb-filters" id="lb-filters" role="group" aria-label="Filter by group"></div>
+
+    <div class="table-scroll">
+      <table class="table is-narrow is-hoverable lb-table" id="lb-table">
+        <thead><tr id="lb-head"></tr></thead>
+        <tbody id="lb-body"></tbody>
+      </table>
+    </div>
+    <p class="lb-foot">
+      Avg. is the macro average of the eight types and sets the rank. <b>Bold</b> and <u>underline</u>: best and second best in each column among zero-shot and among fine-tuned models.
+      Frames: number of video frames given to the model. Human = five physicians on a 400-question subset.
+    </p>
+  </div>
+</section>
+
+<!-- ============ Key findings ============ -->
+<section class="section section-alt" id="findings">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Key Findings</h2>
+    <div class="findings">
+      <div class="finding">
+        <div class="finding-icon"><i class="fas fa-scale-balanced"></i></div>
+        <div><strong>Zero-shot models are close to the answer prior.</strong> The three proprietary models score 51.3&ndash;53.6 and the 32 open MLLMs 30.3&ndash;45.7, against 40.8 for a test-fitted answer prior; five physicians score 79.0 on a 400-question subset.</div>
+      </div>
+      <div class="finding">
+        <div class="finding-icon"><i class="fas fa-bed"></i></div>
+        <div><strong>Perspective taking is the clearest failure.</strong> On the two-way Patient frame, 27 of the 32 open zero-shot models score below 40% and none is clearly above the 50% chance. Qwen3-VL-32B scores 13.4 and gives the image-side answer on 93.4% of 241 bedside items.</div>
+      </div>
+      <div class="finding">
+        <div class="finding-icon"><i class="fas fa-route"></i></div>
+        <div><strong>Fine-tuning helps; planning lags.</strong> Fine-tuning on Clinical3D-Train lifts VideoJev-4B from 45.5 to 73.9 and Patient frame from 17.0 to 93.7, yet Route (58.3) and Passability (66.0) remain its weakest types.</div>
+      </div>
+      <div class="finding">
+        <div class="finding-icon"><i class="fas fa-cube"></i></div>
+        <div><strong>3D as input goes largely unused; 3D as computation helps.</strong> 3D maps given to the fine-tuned MLLM as input go largely unused: replacing them with another video's, even when they are ground truth, barely changes its accuracy. GeoJeV instead lets the MLLM compute with 3D and achieves the highest accuracy of all evaluated models (75.7 macro).</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GeoJeV ============ -->
+<section class="section" id="geojev">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">GeoJeV: Making MLLMs Compute with 3D</h2>
+    <div class="content has-text-justified">
+      <p>
+        GeoJeV has three parts: a fine-tuned MLLM that scores each option, a <em>scene memory</em> reconstructed once per clip
+        from its RGB frames, and three <em>primitives</em> (<code>memory</code>, <code>free_space</code>, <code>geometry</code>)
+        that compute on it and are shared across question types.
+        Linear heads on the MLLM's question state select a primitive and its arguments, and the resulting evidence is added to
+        the model's option scores; no second language model is involved.
+        Over three fine-tuning seeds, GeoJeV raises the macro accuracy from 73.9 to 75.7, with gains mainly on Count, Re-ID,
+        Passability and Direction.
+      </p>
+    </div>
+    <figure class="paper-figure">
+      <img src="static/images/geojev.webp" alt="GeoJeV on a passability question" loading="lazy" width="2063" height="772">
+      <figcaption><strong>GeoJeV</strong> on a passability question. VideoJev-4B, fine-tuned and then frozen, calls <code>free_space</code>, which estimates a maximum traversable body width of 0.57&nbsp;m, below the required 1.2&nbsp;m. Adding its scores to the MLLM's log-probabilities corrects &ldquo;yes&rdquo; to &ldquo;no&rdquo;. <code>memory</code> and <code>geometry</code> show separate calls on the same clip.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ BibTeX ============ -->
+<section class="section section-alt" id="bibtex">
+  <div class="container is-max-desktop">
+    <div class="bib-head">
+      <h2 class="title is-3">BibTeX</h2>
+      <button class="button is-small is-rounded" id="copy-bib"><span class="icon"><i class="far fa-copy"></i></span><span>Copy</span></button>
+    </div>
+    <pre id="bib-text"><code>@misc{bai2026clinical3dbench,
+  title  = {Clinical3D-Bench: Evaluating and Improving Spatial Intelligence of Multimodal LLMs in Hospital Environments},
+  author = {Bai, Yang and Xia, Yingzhi and Lin, Ling and Cheng, Jun and Fu, Lin and Fu, Huazhu},
+  year   = {2026}
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container is-max-desktop has-text-centered">
+    <p>Page template inspired by <a href="https://nerfies.github.io/" target="_blank" rel="noopener">Nerfies</a>, licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>.</p>
+  </div>
+</footer>
+
+<script src="static/data/samples.js"></script>
+<script src="static/data/leaderboard.js"></script>
+<script src="static/js/index.js"></script>
+</body>
+</html>
