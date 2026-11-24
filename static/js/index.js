@@ -15,7 +15,7 @@
   var VIEW_NOTE = {
     photo: 'Photorealistic clip as given to the models (10 s, 60 frames).',
     render: 'Source render from the simulated 3D scene.',
-    masks: 'Instance masks overlaid on the photorealistic clip, one color per object (walls, floor and other structural parts not colored).'
+    masks: 'Ground-truth instance masks overlaid on the source render, one color per object (walls, floor and other structural parts not colored).'
   };
 
   var samples = window.C3D_SAMPLES || [];
@@ -36,8 +36,10 @@
 
   function famName(s) { return FAMILY[s.family] || s.family; }
 
+  var activated = false;
   function setVideo(keepTime) {
     var s = samples[current];
+    if (!activated) { video.poster = 'static/images/thumbs/' + s.clip + '.jpg'; note.textContent = VIEW_NOTE[view]; return; }
     var t = keepTime ? video.currentTime : 0;
     var playing = !video.paused;
     video.src = 'static/videos/' + s.clip + '_' + view + '.mp4';
@@ -117,6 +119,14 @@
       });
     });
     selectClip(0);
+    // Load and play the video only when the sample browser comes into view.
+    var activate = function () { if (activated) return; activated = true; setVideo(false); };
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (es) {
+        if (es.some(function (e) { return e.isIntersecting; })) { io.disconnect(); activate(); }
+      }, { rootMargin: '300px' });
+      io.observe(document.getElementById('samples'));
+    } else { window.addEventListener('load', activate); }
   }
 
   /* ---------------- Leaderboard ---------------- */

@@ -9,11 +9,7 @@
   <meta property="og:description" content="Evaluating and Improving Spatial Intelligence of Multimodal LLMs in Hospital Environments">
   <meta property="og:image" content="static/images/teaser.webp">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Noto+Sans:wght@400;500;700&family=Castoro&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/index.css">
 </head>
 <body>
@@ -46,22 +42,22 @@
       <div class="publication-links">
         <span class="link-block">
           <a href="#" class="button is-rounded is-dark is-disabled-soft" aria-disabled="true" title="Paper link coming soon" onclick="return false;">
-            <span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper</span><span class="soon-tag">coming soon</span>
+            <span class="icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zM8 13h8v1.5H8V13zm0 3h8v1.5H8V16zm0-6h3v1.5H8V10z"/></svg></span><span>Paper</span><span class="soon-tag">coming soon</span>
           </a>
         </span>
         <span class="link-block">
           <a href="https://huggingface.co/datasets/clinicalspace/Clinical3D-Bench" target="_blank" rel="noopener" class="button is-rounded is-dark">
-            <span class="icon"><i class="fas fa-database"></i></span><span>Dataset</span>
+            <span class="icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M12 2C7.6 2 4 3.3 4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5c0-1.7-3.6-3-8-3zm0 2c3.9 0 6 1.1 6 1s-2.1 1-6 1-6-1-6-1 2.1-1 6-1zm6 15c0 .1-2.1 1-6 1s-6-.9-6-1v-2.3c1.5.8 3.7 1.3 6 1.3s4.5-.5 6-1.3V19zm0-5c0 .1-2.1 1-6 1s-6-.9-6-1v-2.3c1.5.8 3.7 1.3 6 1.3s4.5-.5 6-1.3V14zm0-5c0 .1-2.1 1-6 1s-6-.9-6-1V7.7C7.5 8.5 9.7 9 12 9s4.5-.5 6-1.3V9z"/></svg></span><span>Dataset</span>
           </a>
         </span>
         <span class="link-block">
           <a href="https://huggingface.co/datasets/clinicalspace/Clinical3D-Bench/tree/main/code" target="_blank" rel="noopener" class="button is-rounded is-dark">
-            <span class="icon"><i class="fas fa-code"></i></span><span>Code</span>
+            <span class="icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6l-6 6 6 6M16 6l6 6-6 6M14 4l-4 16"/></svg></span><span>Code</span>
           </a>
         </span>
         <span class="link-block">
           <a href="#leaderboard" class="button is-rounded is-dark">
-            <span class="icon"><i class="fas fa-trophy"></i></span><span>Leaderboard</span>
+            <span class="icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M7 2h10v2h4v3a5 5 0 0 1-4.6 5A5 5 0 0 1 13 15.9V18h3v4H8v-4h3v-2.1A5 5 0 0 1 7.6 12 5 5 0 0 1 3 7V4h4V2zm0 4H5v1a3 3 0 0 0 2 2.8V6zm10 0v3.8A3 3 0 0 0 19 7V6h-2z"/></svg></span><span>Leaderboard</span>
           </a>
         </span>
       </div>
@@ -163,7 +159,7 @@
         </div>
       </div>
       <div class="video-wrap">
-        <video id="sample-video" muted loop playsinline autoplay controls preload="auto" width="768" height="448"></video>
+        <video id="sample-video" muted loop playsinline controls preload="none" width="1344" height="768"></video>
       </div>
       <p class="view-note" id="view-note"></p>
     </div>
@@ -193,59 +189,11 @@
   </div>
 </section>
 
-<!-- ============ Key findings ============ -->
-<section class="section section-alt" id="findings">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Key Findings</h2>
-    <div class="findings">
-      <div class="finding">
-        <div class="finding-icon"><i class="fas fa-scale-balanced"></i></div>
-        <div><strong>Zero-shot models are close to the answer prior.</strong> The three proprietary models score 51.3&ndash;53.6 and the 32 open MLLMs 30.3&ndash;45.7, against 40.8 for a test-fitted answer prior; five physicians score 79.0 on a 400-question subset.</div>
-      </div>
-      <div class="finding">
-        <div class="finding-icon"><i class="fas fa-bed"></i></div>
-        <div><strong>Perspective taking is the clearest failure.</strong> On the two-way Patient frame, 27 of the 32 open zero-shot models score below 40% and none is clearly above the 50% chance. Qwen3-VL-32B scores 13.4 and gives the image-side answer on 93.4% of 241 bedside items.</div>
-      </div>
-      <div class="finding">
-        <div class="finding-icon"><i class="fas fa-route"></i></div>
-        <div><strong>Fine-tuning helps; planning lags.</strong> Fine-tuning on Clinical3D-Train lifts VideoJev-4B from 45.5 to 73.9 and Patient frame from 17.0 to 93.7, yet Route (58.3) and Passability (66.0) remain its weakest types.</div>
-      </div>
-      <div class="finding">
-        <div class="finding-icon"><i class="fas fa-cube"></i></div>
-        <div><strong>3D as input goes largely unused; 3D as computation helps.</strong> 3D maps given to the fine-tuned MLLM as input go largely unused: replacing them with another video's, even when they are ground truth, barely changes its accuracy. GeoJeV instead lets the MLLM compute with 3D and achieves the highest accuracy of all evaluated models (75.7 macro).</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ GeoJeV ============ -->
-<section class="section" id="geojev">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">GeoJeV: Making MLLMs Compute with 3D</h2>
-    <div class="content has-text-justified">
-      <p>
-        GeoJeV has three parts: a fine-tuned MLLM that scores each option, a <em>scene memory</em> reconstructed once per clip
-        from its RGB frames, and three <em>primitives</em> (<code>memory</code>, <code>free_space</code>, <code>geometry</code>)
-        that compute on it and are shared across question types.
-        Linear heads on the MLLM's question state select a primitive and its arguments, and the resulting evidence is added to
-        the model's option scores; no second language model is involved.
-        Over three fine-tuning seeds, GeoJeV raises the macro accuracy from 73.9 to 75.7, with gains mainly on Count, Re-ID,
-        Passability and Direction.
-      </p>
-    </div>
-    <figure class="paper-figure">
-      <img src="static/images/geojev.webp" alt="GeoJeV on a passability question" loading="lazy" width="2063" height="772">
-      <figcaption><strong>GeoJeV</strong> on a passability question. VideoJev-4B, fine-tuned and then frozen, calls <code>free_space</code>, which estimates a maximum traversable body width of 0.57&nbsp;m, below the required 1.2&nbsp;m. Adding its scores to the MLLM's log-probabilities corrects &ldquo;yes&rdquo; to &ldquo;no&rdquo;. <code>memory</code> and <code>geometry</code> show separate calls on the same clip.</figcaption>
-    </figure>
-  </div>
-</section>
-
-<!-- ============ BibTeX ============ -->
 <section class="section section-alt" id="bibtex">
   <div class="container is-max-desktop">
     <div class="bib-head">
       <h2 class="title is-3">BibTeX</h2>
-      <button class="button is-small is-rounded" id="copy-bib"><span class="icon"><i class="far fa-copy"></i></span><span>Copy</span></button>
+      <button class="button is-small is-rounded" id="copy-bib"><span class="icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg></span><span>Copy</span></button>
     </div>
     <pre id="bib-text"><code>@misc{bai2026clinical3dbench,
   title  = {Clinical3D-Bench: Evaluating and Improving Spatial Intelligence of Multimodal LLMs in Hospital Environments},

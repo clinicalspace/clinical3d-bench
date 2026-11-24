@@ -1,3 +1,4 @@
+@font-face { font-family: 'Castoro'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/castoro-latin.woff2) format('woff2'); }
 :root {
   --ink: #1f2328;
   --muted: #5b6470;
@@ -12,13 +13,13 @@
 
 html { scroll-behavior: smooth; }
 body {
-  font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'PingFang SC', 'Microsoft YaHei', sans-serif;
   color: var(--ink);
   background: var(--bg);
   overflow-x: hidden;
 }
 .title, .subtitle, .button, .stat-num, .group-name, .type-tag, .lb-table th {
-  font-family: 'Google Sans', 'Noto Sans', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 .container.is-max-desktop { max-width: 1000px !important; padding-left: 16px; padding-right: 16px; }
 .section { padding: 3rem 0; }
@@ -28,8 +29,8 @@ body {
 
 /* ---------- Hero ---------- */
 .hero-body { padding: 3.5rem 0 2rem; }
-.publication-title { font-family: 'Castoro', 'Google Sans', serif !important; font-size: 3.2rem !important; margin-bottom: 0.6rem !important; }
-.publication-subtitle { font-family: 'Google Sans', sans-serif; font-size: 1.6rem !important; line-height: 1.3; color: #333; max-width: 860px; margin: 0 auto 1.4rem !important; }
+.publication-title { font-family: 'Castoro', Georgia, serif !important; font-size: 3.2rem !important; margin-bottom: 0.6rem !important; }
+.publication-subtitle { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 1.6rem !important; line-height: 1.3; color: #333; max-width: 860px; margin: 0 auto 1.4rem !important; }
 .publication-authors { font-size: 1.2rem; margin-bottom: 0.35rem; }
 .publication-authors .author-block { display: inline-block; margin: 0 0.2rem; }
 .publication-affils { font-size: 1.02rem; color: #444; }
