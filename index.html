@@ -128,46 +128,6 @@
       A disjoint training set, Clinical3D-Train, has 44,750 questions.
     </p>
 
-    <h3 class="title is-4">Eight question types in four task groups</h3>
-    <div class="type-groups">
-      <div class="type-group">
-        <div class="group-name">Spatial memory</div>
-        <dl>
-          <dt><span class="type-tag t-count">Count</span></dt>
-          <dd>How many instances of a category seen so far are out of view at time <i>t</i>.</dd>
-          <dt><span class="type-tag t-reid">Re-ID</span></dt>
-          <dd>Which instance at <i>t&prime;</i> is the leftmost one of its category at <i>t</i>.</dd>
-        </dl>
-      </div>
-      <div class="type-group">
-        <div class="group-name">Ownership and relations</div>
-        <dl>
-          <dt><span class="type-tag t-light">Light owner</span></dt>
-          <dd>Which bed the lit bed-head light belongs to.</dd>
-          <dt><span class="type-tag t-device">Device ref.</span></dt>
-          <dd>What the device nearest a named landmark is mounted on, which bed label it carries, or beside which bed, and on which side of its patient, a labelled device is.</dd>
-        </dl>
-      </div>
-      <div class="type-group">
-        <div class="group-name">Frames of reference</div>
-        <dl>
-          <dt><span class="type-tag t-patient">Patient frame</span></dt>
-          <dd>Whether an object near the bed (within 1.5&nbsp;m) or elsewhere in the room is on the supine patient's left or right.</dd>
-        </dl>
-      </div>
-      <div class="type-group">
-        <div class="group-name">Metric navigation</div>
-        <dl>
-          <dt><span class="type-tag t-direction">Direction</span></dt>
-          <dd>The first change of direction on the shortest walkable route to the goal, the goal's quadrant from the start pose, or which corridor door is the goal.</dd>
-          <dt><span class="type-tag t-route">Route</span></dt>
-          <dd>The missing turns in the turn sequence of the shortest route, or which of several goals is nearest along the walking route.</dd>
-          <dt><span class="type-tag t-pass">Passability</span></dt>
-          <dd>Whether a passage at least 0.9&nbsp;m (crash cart) or 1.2&nbsp;m (transport bed) wide leads to the goal, or whether a transport bed can be pushed along a straight route marked on the floor.</dd>
-        </dl>
-      </div>
-    </div>
-
     <figure class="paper-figure">
       <img src="static/images/examples.webp" alt="One example per question type" loading="lazy" width="2100" height="1187">
       <figcaption><strong>The eight question types of Clinical3D-Bench</strong>, organized into four task groups, with one example each (wording abridged). <i>n</i> is the number of questions; the top right of a card gives the answer options. Red boxes mark the ground-truth evidence and green the answer. Navigation cards add a top view with the camera's start pose (arrow), the goal (red) and the shortest walk.</figcaption>
