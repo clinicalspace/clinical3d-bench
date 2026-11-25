@@ -47,12 +47,7 @@
         </span>
         <span class="link-block">
           <a href="https://huggingface.co/datasets/clinicalspace/Clinical3D-Bench" target="_blank" rel="noopener" class="button is-rounded is-dark">
-            <span class="icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M12 2C7.6 2 4 3.3 4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5c0-1.7-3.6-3-8-3zm0 2c3.9 0 6 1.1 6 1s-2.1 1-6 1-6-1-6-1 2.1-1 6-1zm6 15c0 .1-2.1 1-6 1s-6-.9-6-1v-2.3c1.5.8 3.7 1.3 6 1.3s4.5-.5 6-1.3V19zm0-5c0 .1-2.1 1-6 1s-6-.9-6-1v-2.3c1.5.8 3.7 1.3 6 1.3s4.5-.5 6-1.3V14zm0-5c0 .1-2.1 1-6 1s-6-.9-6-1V7.7C7.5 8.5 9.7 9 12 9s4.5-.5 6-1.3V9z"/></svg></span><span>Dataset</span>
-          </a>
-        </span>
-        <span class="link-block">
-          <a href="https://huggingface.co/datasets/clinicalspace/Clinical3D-Bench/tree/main/code" target="_blank" rel="noopener" class="button is-rounded is-dark">
-            <span class="icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6l-6 6 6 6M16 6l6 6-6 6M14 4l-4 16"/></svg></span><span>Code</span>
+            <span class="icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M12 2C7.6 2 4 3.3 4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5c0-1.7-3.6-3-8-3zm0 2c3.9 0 6 1.1 6 1s-2.1 1-6 1-6-1-6-1 2.1-1 6-1zm6 15c0 .1-2.1 1-6 1s-6-.9-6-1v-2.3c1.5.8 3.7 1.3 6 1.3s4.5-.5 6-1.3V19zm0-5c0 .1-2.1 1-6 1s-6-.9-6-1v-2.3c1.5.8 3.7 1.3 6 1.3s4.5-.5 6-1.3V14zm0-5c0 .1-2.1 1-6 1s-6-.9-6-1V7.7C7.5 8.5 9.7 9 12 9s4.5-.5 6-1.3V9z"/></svg></span><span>Benchmark</span>
           </a>
         </span>
         <span class="link-block">
@@ -91,7 +86,7 @@
         Among 35 multimodal large language models (MLLMs), the best open and proprietary models reach 45.7% and 53.6% macro
         accuracy, against 40.8% for an answer prior and 79.0% for physicians on a subset, and 27 of 32 open models score below
         40% on two-way patient-relative directions.
-        Fine-tuning on <strong>Clinical3D-Train</strong>, our 44,750-question training set, lifts two MLLMs 16&ndash;20 points
+        Fine-tuning on <strong>Clinical3D-45K</strong>, our 44,750-question training set, lifts two MLLMs 16&ndash;20 points
         above the best proprietary model.
         3D maps given to the fine-tuned MLLM as input go largely unused: replacing them with another video's, even when they
         are ground truth, barely changes its accuracy.
@@ -121,7 +116,7 @@
     <p class="content intro-text">
       Scenes are generated in simulation from hospital design standards and every answer is computed from the scene record;
       the clips are transferred to photorealistic appearance, verified against the scene and screened by physicians.
-      A disjoint training set, Clinical3D-Train, has 44,750 questions.
+      A disjoint training set, Clinical3D-45K, has 44,750 questions.
     </p>
 
     <figure class="paper-figure">

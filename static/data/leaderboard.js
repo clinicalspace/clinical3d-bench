@@ -570,7 +570,7 @@ window.C3D_LEADERBOARD = [
   "rank": "38"
  },
  {
-  "group": "Fine-tuned on Clinical3D-Train",
+  "group": "Fine-tuned on Clinical3D-45K",
   "model": "Spatial-MLLM SFT",
   "frames": "16",
   "Count": "54.8",
@@ -585,7 +585,7 @@ window.C3D_LEADERBOARD = [
   "rank": "3"
  },
  {
-  "group": "Fine-tuned on Clinical3D-Train",
+  "group": "Fine-tuned on Clinical3D-45K",
   "model": "VideoJev-4B SFT",
   "frames": "20",
   "Count": "66.8",
@@ -600,7 +600,7 @@ window.C3D_LEADERBOARD = [
   "rank": "2"
  },
  {
-  "group": "Fine-tuned on Clinical3D-Train",
+  "group": "Fine-tuned on Clinical3D-45K",
   "model": "GeoJeV (ours)",
   "frames": "20",
   "Count": "69.3",

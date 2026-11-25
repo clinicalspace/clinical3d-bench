@@ -143,10 +143,10 @@
     { id: 'Proprietary Models (API)', short: 'Proprietary' },
     { id: 'Open-source General Models', short: 'Open-source General' },
     { id: 'Open-source Spatial Models', short: 'Open-source Spatial' },
-    { id: 'Fine-tuned on Clinical3D-Train', short: 'Fine-tuned' }
+    { id: 'Fine-tuned on Clinical3D-45K', short: 'Fine-tuned' }
   ];
   var ZERO_SHOT = ['Proprietary Models (API)', 'Open-source General Models', 'Open-source Spatial Models'];
-  var FINETUNED = ['Fine-tuned on Clinical3D-Train'];
+  var FINETUNED = ['Fine-tuned on Clinical3D-45K'];
 
   rows.forEach(function (r, i) { r._order = i; });
 
